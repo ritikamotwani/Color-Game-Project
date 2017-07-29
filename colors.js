@@ -47,12 +47,14 @@ colorDisplay.textContent = pickedColor;
 reset.addEventListener("click", function(){
 	col = generateRandomColors(numSquares);
 	pickedColor = pickColor();
+	messageDisplay.textContent = " ";
 	colorDisplay.textContent = pickedColor;
+	this.textContent = "New Colors";
 	for (var i = 0; i < squares.length; i++)
 	{
 		squares[i].style.background = col[i];
 	}
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 
 });
 for (var i = 0; i < squares.length; i++)
