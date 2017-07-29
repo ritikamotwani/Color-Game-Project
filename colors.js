@@ -1,13 +1,51 @@
-var col = generateRandomColors(6);
+var numSquares = 6;
+var col = generateRandomColors(numSquares);
 var messageDisplay = document.getElementById("message");
 var squares = document.querySelectorAll(".square");
 var reset = document.getElementById("reset")
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var h1 = document.querySelector("h1");
+var easy = document.getElementById("easy");
+var hard = document.getElementById("hard");
+easy.addEventListener("click",function()
+{
+	easy.classList.add("selected");
+	hard.classList.remove("selected");
+	
+	numSquares = 3;
+	col = generateRandomColors(numSquares);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for (var i = 0; i < squares.length; i++)
+	{
+		if(col[i])
+		{
+			squares[i].style.background = col[i];
+		}
+		else
+		{
+			squares[i].style.display = "none";
+		}
+	}
+});
+hard.addEventListener("click",function()
+{
+	easy.classList.remove("selected");
+	hard.classList.add("selected");
+	numSquares = 6;
+	col = generateRandomColors(numSquares);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for (var i = 0; i < squares.length; i++)
+	{
+			squares[i].style.background = col[i];
+			squares[i].style.display = "block";
+	}
+});
 colorDisplay.textContent = pickedColor;
 reset.addEventListener("click", function(){
-	col = generateRandomColors(6);
+	col = generateRandomColors(numSquares);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
 	for (var i = 0; i < squares.length; i++)
