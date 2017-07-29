@@ -12,7 +12,7 @@ easy.addEventListener("click",function()
 {
 	easy.classList.add("selected");
 	hard.classList.remove("selected");
-	
+	messageDisplay.textContent="";
 	numSquares = 3;
 	col = generateRandomColors(numSquares);
 	pickedColor = pickColor();
@@ -33,6 +33,7 @@ hard.addEventListener("click",function()
 {
 	easy.classList.remove("selected");
 	hard.classList.add("selected");
+	messageDisplay.textContent="";
 	numSquares = 6;
 	col = generateRandomColors(numSquares);
 	pickedColor = pickColor();
